@@ -20,9 +20,15 @@
 <header class="bg-[#264653] text-white">
     <div class="container mx-auto flex justify-between items-center p-4">
         <!-- Logo -->
-        <a href="/" class="text-2xl font-bold">
-            <h1>Unity Exporter</h1>
-        </a>
+        <div class="flex items-center space-x-4">
+            <a href="/">
+                <img src="{% static 'images/png.png' %}" alt="Home" class="w-10 h-10"/>
+            </a>
+            <a href="/" class="text-2xl font-bold">
+                <h1>Unity Exporter</h1>
+            </a>
+        </div>
+
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-6">
@@ -87,7 +93,7 @@
     <h1 class="text-6xl font-bold animate__animated animate__bounceInUp">Welcome to Unity Exporter</h1>
 
     <!-- Paragraph -->
-    <p class="text-2xl animate__animated animate__fadeInUp animate__delay-1s">Exporting Premium Quality Spices & Biomass Products</p>
+    <p class="text-2xl animate__animated animate__fadeInUp animate__delay-1s">Exporting Premium Products </p>
 
     <!-- Get in Touch Button -->
     <a href="#contact" id="flame-button"
@@ -133,11 +139,10 @@
 <section id="about" class="py-16 bg-gray-50">
     <div class="container mx-auto text-center">
         <!-- Section Title -->
-        <h3 class="text-4xl font-bold text-[#264653] mb-6">About Unity Export</h3>
+        <h3 class="text-4xl font-bold text-[#264653] mb-6">About Us</h3>
         <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
-            At Unity Export, we specialize in exporting premium spices and biomass products. Our mission is to connect
-            global markets with the best quality chili, turmeric, coriander, and biomass briquettes. Though we don't grow these
-            products ourselves, we source them from trusted partners to ensure quality and consistency.
+            At Unity Export, we specialize in exporting premium spices. Our mission is to connect
+            global markets with the best quality chilli, turmeric, coriander.
         </p>
 
         <!-- Rotating Cards Section -->
@@ -147,12 +152,12 @@
                 <div class="relative w-full h-64">
                     <div class="absolute inset-0 bg-white shadow-md rounded-lg transform transition-transform group-hover:rotate-y-180">
                         <div class="front p-6 flex flex-col justify-center items-center">
-                            <img src="{% static 'images/chilli.jpeg' %}" alt="Chili" class="w-20 h-20 mb-4">
-                            <h4 class="text-xl font-semibold">Premium Chili</h4>
+                            <img src="{% static 'images/chilli.jpeg' %}" alt="Chilli" class="w-20 h-20 mb-4">
+                            <h4 class="text-xl font-semibold">Premium Chilli</h4>
                         </div>
                         <div class="back bg-[#264653] text-white p-6 rounded-lg transform rotate-y-180">
                             <p class="text-lg">
-                                Experience the finest chili sourced from the best farms, guaranteed to add flavor to any cuisine.
+                                Experience the finest chilli sourced from the best farms, guaranteed to add flavor to any cuisine.
                             </p>
                         </div>
                     </div>
@@ -180,11 +185,11 @@
                     <div class="absolute inset-0 bg-white shadow-md rounded-lg transform transition-transform group-hover:rotate-y-180">
                         <div class="front p-6 flex flex-col justify-center items-center">
                             <img src="{% static 'images/briquette.jpeg' %}" alt="Biomass Briquettes" class="w-20 h-20 mb-4">
-                            <h4 class="text-xl font-semibold">Biomass Briquettes</h4>
+                            <h4 class="text-xl font-semibold">Biomass Fuel</h4>
                         </div>
                         <div class="back bg-[#264653] text-white p-6 rounded-lg transform rotate-y-180">
                             <p class="text-lg">
-                                Eco-friendly biomass briquettes for sustainable energy solutions, sourced from reliable partners.
+                                Eco-friendly biomass fuel for sustainable energy solutions, sourced from reliable partners.
                             </p>
                         </div>
                     </div>
@@ -212,18 +217,18 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Product Card -->
       <div class="p-6 bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg flex flex-col justify-between hover:scale-105 transition transform duration-300">
-        <img src="{% static 'images/chilli.jpeg' %}" alt="Chili Products" class="w-full h-48 object-cover rounded-md mb-4">
-        <h4 class="text-2xl font-bold text-white mb-2">Chili Products</h4>
+        <img src="{% static 'images/chilli.jpeg' %}" alt="Chilli Products" class="w-full h-48 object-cover rounded-md mb-4">
+        <h4 class="text-2xl font-bold text-white mb-2">Chilli Products</h4>
         <ul class="list-disc ml-6 text-gray-200 mb-4">
-          <li>Chili Powder</li>
-          <li>Chili Flakes</li>
-          <li>Stemmed Chili</li>
-          <li>Stemless Chili</li>
+          <li>Chilli Powder</li>
+          <li>Chilli Flakes</li>
+          <li>Stemmed Chilli</li>
+          <li>Stemless Chilli</li>
         </ul>
       <div class="flex justify-center">
   <a href="{% url 'items_view' %}?category=chilli"
      class="inline-block bg-[#f4a261] text-white font-bold py-2 px-4 rounded-full hover:bg-[#e76f51] transition duration-300 text-center">
-     Order Now
+     Inquiry Now
   </a>
 </div>
  </div>
@@ -239,7 +244,7 @@
         <div class="flex justify-center">
   <a href="{% url 'items_view' %}?category=turmeric"
      class="inline-block bg-[#f4a261] text-white font-bold py-2 px-4 rounded-full hover:bg-[#e76f51] transition duration-300 text-center">
-     Order Now
+     Inquiry Now
   </a>
 </div>
  </div>
@@ -256,7 +261,7 @@
        <div class="flex justify-center">
   <a href="{% url 'items_view' %}?category=coriander"
      class="inline-block bg-[#f4a261] text-white font-bold py-2 px-4 rounded-full hover:bg-[#e76f51] transition duration-300 text-center">
-     Order Now
+     Inquiry Now
   </a>
 </div>
   </div>
@@ -264,7 +269,7 @@
       <!-- Product Card -->
       <div class="p-6 bg-white bg-opacity-10 backdrop-blur-md rounded-lg shadow-lg flex flex-col justify-between hover:scale-105 transition transform duration-300">
         <img src="{% static 'images/briquette.jpeg' %}" alt="Biomass Products" class="w-full h-48 object-cover rounded-md mb-4">
-        <h4 class="text-2xl font-bold text-white mb-2">Biomass Products</h4>
+        <h4 class="text-2xl font-bold text-white mb-2">Biomass Fuel</h4>
         <p class="text-gray-200 mb-4">Available exclusively in India:</p>
         <ul class="list-disc ml-6 text-gray-200 mb-4">
           <li>Biomass Briquettes</li>
@@ -273,7 +278,7 @@
       <div class="flex justify-center">
   <a href="{% url 'items_view' %}?category=biomass"
      class="inline-block bg-[#f4a261] text-white font-bold py-2 px-4 rounded-full hover:bg-[#e76f51] transition duration-300 text-center">
-     Order Now
+     Inquiry Now
   </a>
 </div>
  </div>
