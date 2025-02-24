@@ -1,0 +1,58 @@
+{% extends 'ExporterHome/base.html' %}
+
+{% block content %}
+<div class="category-navigation mb-8">
+    <ul class="flex space-x-4">
+        {% for category in categories %}
+        <li>
+            <a href="{% url 'items_view' %}?category={{ category }}"
+               class="{% if current_category == category %}text-red-500 font-bold{% else %}text-blue-500{% endif %}">
+                {{ category|capfirst }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="container mx-auto py-8">
+  {% for category, items in items_by_category.items %}<br>
+    <h2 class="text-3xl font-bold mb-4 text-gray-700 text-center">{{ category|title }}</h2><br>
+    <div class="flex justify-center">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-screen-xl w-full px-4 sm:px-6 lg:px-8">
+        {% for item in items %}
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+            <img src="{{ item.image.url }}" alt="{{ item.name }}" class="w-full h-80 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800">{{ item.name }}</h3>
+              <p class="text-gray-600 text-sm mt-2">{{ item.description }}</p>
+              <p class="text-gray-500 text-sm">Stock:
+                <span class="{% if item.stock == 'in_stock' %}text-green-600{% elif item.stock == 'coming_soon' %}text-yellow-500{% else %}text-red-600{% endif %}">
+                  {{ item.stock|title }}
+                </span>
+              </p>
+              <p class="text-gray-500 text-sm">Delivery: {{ item.location }}</p>
+            </div>
+            <div class="p-4 bg-gray-50 flex justify-center">
+
+                {% csrf_token %}
+                <button type="button" onclick="window.location.href='{% url 'home' %}#contact';"
+                        class="w-5/5 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-200
+                        {% if item.stock == 'out_of_stock' or item.stock == 'coming_soon' %} bg-gray-400 cursor-not-allowed {% endif %}
+                        {% if item.stock == 'out_of_stock' or item.stock == 'coming_soon' %} disabled {% endif %}">
+                    {% if item.stock == 'out_of_stock' %}
+                        Out of Stock
+                    {% elif item.stock == 'coming_soon' %}
+                        Coming Soon
+                    {% else %}
+                        Contact Us
+                    {% endif %}
+                </button>
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

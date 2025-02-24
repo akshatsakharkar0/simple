@@ -1,0 +1,42 @@
+{% extends 'ExporterHome/base.html' %}
+
+{% block content %}
+    <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f7fafc;">
+        <div style="background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
+            <h2 style="text-align: center; margin-bottom: 20px;">Login</h2>
+
+            <!-- Login Form -->
+            <form method="POST">
+                {% csrf_token %}
+
+                <!-- Username -->
+                <div style="margin-bottom: 20px;">
+                    <label for="username" style="display: block; font-size: 14px; color: #4a4a4a;">Username</label>
+                    <input type="text" name="username" id="username" value="{{ form.username.value }}" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+                </div>
+
+                <!-- Password -->
+                <div style="margin-bottom: 20px;">
+                    <label for="password" style="display: block; font-size: 14px; color: #4a4a4a;">Password</label>
+                    <input type="password" name="password" id="password" value="{{ form.password.value }}" required
+                        style="width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px;">
+                </div>
+
+                <!-- Remember Me and Forgot Password -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" name="remember_me" id="remember_me" style="width: 15px; height: 15px;">
+                        <label for="remember_me" style="font-size: 14px; margin-left: 5px; color: #4a4a4a;">Remember me</label>
+                    </div>
+                    <a href="#" style="font-size: 14px; color: #3182ce;">Forgot Password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" style="width: 100%; padding: 10px; background-color: #3182ce; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
